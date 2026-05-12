@@ -1,0 +1,137 @@
+// ─────────────────────────────────────────────────────────────
+// CONTENIDO DEL SITIO
+// Todo lo editable desde el panel admin vive aquí.
+// El panel guarda en localStorage para persistencia.
+// ─────────────────────────────────────────────────────────────
+
+export const defaultContent = {
+  hero: {
+    slides: [
+      { label: 'Locutora de Radio',      accent: '#e63946', image: '' },
+      { label: 'Creadora de Contenidos', accent: '#4361ee', image: '' },
+      { label: 'Publicidad Digital',     accent: '#f4a261', image: '' },
+      { label: 'Influencer & UGC',       accent: '#4ade80', image: '' },
+    ],
+    headline1: 'Karolaynt',
+    headline2: 'Villarroel.',
+    subtitle: 'Creadora de contenidos, locutora de radio y experta en publicidad para marcas y tiendas. Tu voz auténtica en el mundo digital.',
+    ctaLabel: 'Hablemos de tu proyecto',
+  },
+
+  about: {
+    eyebrow: 'Sobre mí',
+    title: 'Donde la voz se convierte en marca.',
+    para1: 'Soy Karolaynt Villarroel, locutora de radio y creadora de contenidos con pasión por conectar marcas con personas reales. Mi trabajo combina narrativa auténtica, creatividad visual y estrategia para que tu mensaje llegue lejos.',
+    para2: 'Trabajo con tiendas, marcas y negocios que quieren una presencia digital que realmente genere impacto. Cada proyecto es único — como tu marca.',
+    chips: ['Locución profesional', 'Contenido para redes', 'Publicidad digital', 'Branding personal', 'Colaboraciones con marcas', 'Radio & Podcast'],
+  },
+
+  services: [
+    {
+      num: '01', emoji: '🎙️',
+      name: 'Locución & Radio',
+      desc: 'Voz profesional para cuñas, podcasts, spots publicitarios y programas de radio. Claridad, tono y emoción en cada palabra.',
+      tags: ['Cuñas radiales', 'Podcasts', 'Voice-over'],
+    },
+    {
+      num: '02', emoji: '🎬',
+      name: 'Creación de Contenidos',
+      desc: 'Videos, reels, stories y posts diseñados para enganchar a tu audiencia en TikTok, Instagram, YouTube y más plataformas.',
+      tags: ['Reels', 'TikToks', 'YouTube'],
+    },
+    {
+      num: '03', emoji: '📢',
+      name: 'Publicidad para Marcas',
+      desc: 'Campañas creativas para tiendas y marcas. Desde la idea hasta la publicación, con resultados que se sienten y se miden.',
+      tags: ['Campañas', 'UGC', 'Colaboraciones'],
+    },
+  ],
+
+  portfolio: [
+    {
+      id: 1, type: 'placeholder',
+      category: 'Locución Radial',
+      title: 'Spot publicitario — Tienda Moda VIP',
+      desc: 'Cuña radial de 30 segundos para campaña de temporada.',
+      platform: 'Radio',
+      gradient: 'linear-gradient(135deg, #e63946 0%, #c1121f 100%)',
+      emoji: '🎙️',
+      tags: ['Locución', 'Radio', 'Publicidad'],
+      embedId: '',
+      embedUrl: '',
+    },
+    {
+      id: 2, type: 'placeholder',
+      category: 'Contenido TikTok',
+      title: 'Campaña verano — Marca de ropa',
+      desc: 'Serie de 5 videos para campaña de temporada.',
+      platform: 'TikTok',
+      gradient: 'linear-gradient(135deg, #ff0050 0%, #69C9D0 100%)',
+      emoji: '🎬',
+      tags: ['TikTok', 'UGC', 'Moda'],
+      embedId: '',
+      embedUrl: '',
+    },
+    {
+      id: 3, type: 'placeholder',
+      category: 'Instagram Reels',
+      title: 'Review producto — Cosmética natural',
+      desc: 'Reel de producto con demostración en vivo.',
+      platform: 'Instagram',
+      gradient: 'linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%)',
+      emoji: '📸',
+      tags: ['Instagram', 'Belleza', 'Review'],
+      embedId: '',
+      embedUrl: '',
+    },
+    {
+      id: 4, type: 'placeholder',
+      category: 'YouTube',
+      title: 'Unboxing & Review — Tech gadget',
+      desc: 'Video de 8 minutos con unboxing completo.',
+      platform: 'YouTube',
+      gradient: 'linear-gradient(135deg, #ff0000 0%, #ff6b6b 100%)',
+      emoji: '▶️',
+      tags: ['YouTube', 'Tech', 'Unboxing'],
+      embedId: '',
+      embedUrl: '',
+    },
+    {
+      id: 5, type: 'placeholder',
+      category: 'Publicidad Digital',
+      title: 'Campaña 360 — Restaurante local',
+      desc: 'Contenido para todas las plataformas.',
+      platform: 'Multi-plataforma',
+      gradient: 'linear-gradient(135deg, #f4a261 0%, #e76f51 100%)',
+      emoji: '📢',
+      tags: ['Publicidad', 'Gastronomía', '360°'],
+      embedId: '',
+      embedUrl: '',
+    },
+    {
+      id: 6, type: 'placeholder',
+      category: 'Podcast & Audio',
+      title: 'Episodio patrocinado — Finanzas personales',
+      desc: 'Segmento patrocinado integrado de forma natural.',
+      platform: 'Podcast',
+      gradient: 'linear-gradient(135deg, #4361ee 0%, #7209b7 100%)',
+      emoji: '🎧',
+      tags: ['Podcast', 'Audio', 'Patrocinio'],
+      embedId: '',
+      embedUrl: '',
+    },
+  ],
+
+  redes: [
+    { platform: 'TikTok',    handle: '@Karolayntv', followers: '10K+', url: 'https://tiktok.com/@karolayntv',    desc: 'Tendencias, creatividad y contenido que engancha. La plataforma que nunca duerme.' },
+    { platform: 'Instagram', handle: '@Karolayntv', followers: '5K+',  url: 'https://instagram.com/karolayntv',  desc: 'Reels, stories y fotos del día a día. Lifestyle auténtico y colaboraciones con marcas.' },
+    { platform: 'YouTube',   handle: 'Karolayntv',  followers: '2K+',  url: 'https://youtube.com/@karolayntv',   desc: 'Videos en profundidad, vlogs y contenido exclusivo. Suscríbete y no te pierdas nada.' },
+    { platform: 'Facebook',  handle: 'Karolayntv',  followers: '3K+',  url: 'https://facebook.com/karolayntv',   desc: 'Comunidad, transmisiones en vivo y actualizaciones para marcas y seguidores.' },
+  ],
+
+  contact: {
+    email: 'karolayntv@gmail.com',
+    whatsapp: '',
+    formspreeId: '',
+  },
+}

@@ -1,0 +1,236 @@
+.services {
+  padding: 120px 6vw;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.bgText {
+  position: absolute;
+  font-family: var(--serif);
+  font-size: clamp(120px, 18vw, 240px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.018);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  letter-spacing: -8px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: 72px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: -2.5px;
+  margin-bottom: 20px;
+}
+
+.headerSub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.7;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.028);
+  border: 0.5px solid rgba(255, 255, 255, 0.06);
+  padding: 44px 36px 56px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.55s var(--ease-out);
+  cursor: none;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(230,57,70,0.07), transparent);
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.048);
+  border-color: rgba(230, 57, 70, 0.28);
+  transform: translateY(-5px);
+}
+
+.card:hover::before { opacity: 1; }
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.cardNum {
+  font-family: var(--serif);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+.cardIcon {
+  width: 52px;
+  height: 52px;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.45s var(--ease-out);
+}
+
+.card:hover .cardIcon {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.cardName {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.72;
+  margin-bottom: 24px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardTag {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 4px 12px;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+}
+
+.card:hover .cardTag {
+  border-color: rgba(230, 57, 70, 0.3);
+  color: rgba(230, 57, 70, 0.8);
+}
+
+.cardArrow {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  width: 38px;
+  height: 38px;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 15px;
+  transition: all 0.45s var(--ease-out);
+}
+
+.card:hover .cardArrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  transform: rotate(45deg) scale(1.1);
+}
+
+/* ── CTA ── */
+.cta { text-align: center; position: relative; z-index: 1; }
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  border-radius: 100px;
+  padding: 18px 40px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  transition: all 0.5s var(--ease-out);
+  cursor: none;
+}
+
+.ctaBtn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.03);
+  box-shadow: 0 16px 48px rgba(230, 57, 70, 0.3);
+}
+
+.ctaArrow {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 36px 28px 48px; }
+}

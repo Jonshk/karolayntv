@@ -1,0 +1,188 @@
+.redes {
+  padding: 120px 6vw;
+  background: var(--white);
+  position: relative;
+}
+
+.redes::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 6vw; right: 6vw;
+  height: 0.5px;
+  background: linear-gradient(to right, transparent, var(--gray2), transparent);
+}
+
+.header { margin-bottom: 64px; }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gray3);
+  line-height: 1.6;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid var(--gray2);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--black);
+  background: var(--white);
+  cursor: none;
+  transition: all 0.55s var(--ease-out);
+  isolation: isolate;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: transparent;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.1);
+}
+
+/* ── Top row ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.iconWrap {
+  width: 56px; height: 56px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.5s var(--ease-spring);
+}
+
+.card:hover .iconWrap {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.platformInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.platformName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.04em;
+}
+
+.followers {
+  font-size: 12px;
+  color: var(--gray3);
+  font-weight: 300;
+}
+
+.externalArrow {
+  font-size: 18px;
+  color: var(--gray2);
+  transition: all 0.4s var(--ease-out);
+}
+
+.card:hover .externalArrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+/* ── Handle ── */
+.handle {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--black);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+/* ── Desc ── */
+.desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray3);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ── Follow row ── */
+.followRow { margin-top: 24px; }
+
+.followBtn {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.4s var(--ease-out), color 0.3s;
+}
+
+.card:hover .followBtn {
+  gap: 12px;
+  color: var(--accent);
+}
+
+/* ── Bar ── */
+.bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  opacity: 0.7;
+  transition: height 0.4s var(--ease-out), opacity 0.4s;
+}
+
+.card:hover .bar { height: 5px; opacity: 1; }
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 24px; }
+  .handle { font-size: 24px; }
+}

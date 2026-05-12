@@ -1,0 +1,325 @@
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 0 6vw;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* ── Background slides ── */
+.bgStack { position: absolute; inset: 0; z-index: 0; }
+
+.bgSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1);
+}
+
+.bgActive {
+  opacity: 1;
+  animation: kenBurns 5.9s ease-out forwards;
+}
+
+.bgPrev { opacity: 0; }
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.06); }
+  100% { transform: scale(1.0); }
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.5) 100%),
+    linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 45%);
+}
+
+/* ── Noise ── */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ── Content ── */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 7px 16px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s var(--ease-out) forwards;
+  backdrop-filter: blur(8px);
+}
+
+.tagDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  animation: pulse 2.2s ease-in-out infinite;
+  flex-shrink: 0;
+  transition: background 0.5s ease;
+}
+
+.tagText {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: fadeSlide 0.5s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ── Headline ── */
+.headline {
+  font-family: var(--serif);
+  font-size: clamp(64px, 11vw, 130px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.line1, .line2 {
+  display: block;
+  opacity: 0;
+  transform: translateY(90px);
+  color: var(--white);
+}
+
+.line1 { animation: slideUp 1s 0.35s var(--ease-out) forwards; }
+.line2 {
+  animation: slideUp 1s 0.5s var(--ease-out) forwards;
+  font-style: italic;
+}
+
+/* ── Sub ── */
+.sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  max-width: 500px;
+  margin-bottom: 52px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.7s var(--ease-out) forwards;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.88s var(--ease-out) forwards;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 100px;
+  padding: 17px 34px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 0.5s var(--ease-out);
+  cursor: none;
+}
+
+.btnPrimary:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(230,57,70,0.4);
+}
+
+.arrowWrap {
+  width: 30px; height: 30px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.btnPrimary:hover .arrowWrap {
+  transform: translate(3px, -3px) scale(1.1);
+  background: rgba(255,255,255,0.2);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.3s, gap 0.4s var(--ease-out);
+  cursor: none;
+}
+
+.btnSecondary:hover { color: var(--white); gap: 14px; }
+
+/* ── Slide dots ── */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 48px;
+  opacity: 0;
+  animation: fadeUp 0.9s 1.05s var(--ease-out) forwards;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: none;
+  transition: all 0.5s var(--ease-out);
+  padding: 0;
+}
+
+.dotActive {
+  width: 28px;
+  opacity: 1;
+}
+
+/* ── Floating badges ── */
+.badge1, .badge2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.badge1 {
+  right: 6vw;
+  top: 50%;
+  transform: translateY(-60%);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 20px 24px;
+  opacity: 0;
+  animation: fadeUp 1s 1.1s var(--ease-out) forwards;
+}
+
+.badge2 {
+  right: calc(6vw + 10px);
+  top: calc(50% + 90px);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 10px 20px;
+  flex-direction: row;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 1s 1.25s var(--ease-out) forwards;
+}
+
+.badgeNum {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.badgeLabel {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badgeDot {
+  width: 7px; height: 7px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Scroll hint ── */
+.scrollHint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 1s 1.4s var(--ease-out) forwards;
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 56px;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50%      { opacity: 1;   transform: scaleY(1.15); }
+}
+
+@keyframes fadeUp  { to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .hero { padding: 120px 6vw 80px; align-items: flex-start; }
+  .badge1, .badge2 { display: none; }
+  .headline { letter-spacing: -2px; }
+  .actions { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,133 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(230,57,70,0.08), transparent 65%);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: #111;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+@keyframes shakeAnim {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-6px); }
+  80%      { transform: translateX(6px); }
+}
+
+.shake { animation: shakeAnim 0.5s ease; }
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.fieldWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 0 0 3px rgba(230,57,70,0.1);
+}
+
+.inputError { border-color: #e63946 !important; }
+
+.errorMsg {
+  font-size: 12px;
+  color: #e63946;
+}
+
+.btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #e63946;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.32,0.72,0,1);
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+
+.btn:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(230,57,70,0.35);
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.backLink:hover { color: rgba(255,255,255,0.7); }
