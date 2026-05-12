@@ -347,8 +347,19 @@ function PortfolioTab({ data, onChange }) {
               label="ID YouTube"
               value={item.embedId || ''}
               hint="Ej: dQw4w9WgXcQ"
-              onChange={(v) => update(i, 'embedId', v)}
-            />
+              onChange={(v) => {
+                let id = v
+              
+                if (v.includes('youtube.com/watch?v=')) {
+                  id = v.split('v=')[1]?.split('&')[0]
+                }
+              
+                if (v.includes('youtu.be/')) {
+                  id = v.split('youtu.be/')[1]?.split('?')[0]
+                }
+              
+                update(i, 'embedId', id)
+              }}            />
 
             <Field
               label="URL Instagram"
