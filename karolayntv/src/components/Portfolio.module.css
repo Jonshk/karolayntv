@@ -24,7 +24,8 @@
 
 .eyebrow::before {
   content: '';
-  width: 28px; height: 1px;
+  width: 28px;
+  height: 1px;
   background: var(--accent);
   flex-shrink: 0;
 }
@@ -71,12 +72,55 @@
   transform: scale(0.985);
 }
 
-/* YouTube / Instagram iframe */
-.iframe {
+/* Media */
+.iframe,
+.video,
+.image {
   width: 100%;
   height: 100%;
   border: none;
   display: block;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.video {
+  object-fit: cover;
+  background: #000;
+}
+
+.instagramFallback,
+.tiktokFallback {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.instagramFallback {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.tiktokFallback {
+  background: linear-gradient(135deg, #111, #ff0050, #00f2ea);
+}
+
+.instagramFallback span,
+.tiktokFallback span {
+  font-size: 52px;
+}
+
+.instagramFallback strong,
+.tiktokFallback strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
 }
 
 /* ── Placeholder visual ── */
@@ -110,7 +154,7 @@
 
 @keyframes floatEmoji {
   0%,100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-12px) scale(1.05); }
+  50% { transform: translateY(-12px) scale(1.05); }
 }
 
 .placeholderLines {
@@ -133,7 +177,7 @@
 
 @keyframes shimmer {
   0%,100% { opacity: 0.15; }
-  50%      { opacity: 0.35; }
+  50% { opacity: 0.35; }
 }
 
 .playBtn {
@@ -166,7 +210,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Decorative grid overlay */
 .grid {
   position: absolute;
   inset: 0;
@@ -177,7 +220,7 @@
   pointer-events: none;
 }
 
-/* ── Overlay on preview ── */
+/* ── Overlay ── */
 .overlay {
   position: absolute;
   inset: 0;
@@ -268,12 +311,10 @@
   letter-spacing: 0.04em;
 }
 
-/* ── Progress bar ── */
 .progressBar {
   height: 2px;
   background: rgba(255,255,255,0.12);
   width: 100%;
-  margin-top: 0;
 }
 
 .progressFill {
@@ -282,7 +323,7 @@
   transition: width 0.1s linear;
 }
 
-/* ── Thumbnails strip ── */
+/* ── Thumbnails ── */
 .thumbs {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -336,10 +377,11 @@
   transform: scale(1.15);
 }
 
-/* Mini progress on active thumb */
 .thumbProgress {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: rgba(0,0,0,0.3);
 }
@@ -380,7 +422,7 @@
   color: rgba(255,255,255,0.9);
 }
 
-/* ── CTA row ── */
+/* ── CTA ── */
 .cta {
   display: flex;
   align-items: center;
@@ -424,7 +466,6 @@
   box-shadow: 0 16px 48px rgba(230,57,70,0.3);
 }
 
-/* ── Mobile ── */
 @media (max-width: 900px) {
   .section { padding: 80px 4vw; }
   .preview { aspect-ratio: 16 / 10; border-radius: 16px; }

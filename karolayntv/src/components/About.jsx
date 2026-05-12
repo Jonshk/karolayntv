@@ -11,27 +11,58 @@ export default function About() {
     <section className={styles.about} id="about" ref={ref}>
       <div className={styles.imageCol}>
         <div className={`${styles.imageWrap} reveal`}>
-          <div className={styles.imagePlaceholder}>
-            <span className={styles.initials}>KV</span>
-          </div>
+          {about.image ? (
+            <img
+              src={about.image}
+              alt={about.badgeName || 'Karolaynt'}
+              className={styles.aboutImage}
+            />
+          ) : (
+            <div className={styles.imagePlaceholder}>
+              <span className={styles.initials}>KV</span>
+            </div>
+          )}
+
           <div className={styles.imageOverlay} />
+
           <div className={styles.imageBadge}>
-            <div className={styles.badgeName}>Karolaynt Villarroel</div>
-            <div className={styles.badgeRole}>@Karolayntv · Creadora & Locutora</div>
+            <div className={styles.badgeName}>
+              {about.badgeName || 'Karolaynt Villarroel'}
+            </div>
+            <div className={styles.badgeRole}>
+              {about.badgeRole || '@Karolayntv · Creadora & Locutora'}
+            </div>
           </div>
+
           <div className={styles.ring} />
         </div>
       </div>
+
       <div className={styles.textCol}>
-        <div className={`${styles.eyebrow} reveal`}>{about.eyebrow}</div>
-        <h2 className={`${styles.h2} reveal reveal-delay-1`}
-          dangerouslySetInnerHTML={{ __html: about.title.replace('convierte', '<em>convierte</em>') }}
+        <div className={`${styles.eyebrow} reveal`}>
+          {about.eyebrow}
+        </div>
+
+        <h2
+          className={`${styles.h2} reveal reveal-delay-1`}
+          dangerouslySetInnerHTML={{
+            __html: about.title.replace('convierte', '<em>convierte</em>')
+          }}
         />
-        <p className={`${styles.p} reveal reveal-delay-2`}>{about.para1}</p>
-        <p className={`${styles.p} reveal reveal-delay-3`}>{about.para2}</p>
+
+        <p className={`${styles.p} reveal reveal-delay-2`}>
+          {about.para1}
+        </p>
+
+        <p className={`${styles.p} reveal reveal-delay-3`}>
+          {about.para2}
+        </p>
+
         <div className={`${styles.chips} reveal reveal-delay-4`}>
           {about.chips.map((c) => (
-            <span key={c} className={styles.chip} data-cursor>{c}</span>
+            <span key={c} className={styles.chip} data-cursor>
+              {c}
+            </span>
           ))}
         </div>
       </div>
