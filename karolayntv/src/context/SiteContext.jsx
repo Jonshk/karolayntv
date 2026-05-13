@@ -3,7 +3,7 @@ import { defaultContent } from './siteContent'
 
 const STORAGE_KEY = 'karolayntv_content'
 const BIN_ID      = '6a039742250b1311c33f17d8'
-const MASTER_KEY  = '$2a$10$DjgR8l8/Brg7bnJ.dJaIBeJFhzRG0lcgnjyPkgq2DgiGxtHRWKEJ.'
+const ACCESS_KEY  = '$2a$10$N84VnO0Zx4lNyVUGGwE99eY6Di8l3WoDOr8fE2FxqSyfL9ZBOWzgS'
 const BIN_URL     = `https://api.jsonbin.io/v3/b/${BIN_ID}`
 
 const SiteContext = createContext(null)
@@ -11,7 +11,7 @@ const SiteContext = createContext(null)
 async function fetchFromCloud() {
   try {
     const res = await fetch(BIN_URL + '/latest', {
-      headers: { 'X-Master-Key': MASTER_KEY }
+      headers: { 'X-Access-Key': ACCESS_KEY }
     })
     const data = await res.json()
     if (data.record && data.record.hero) return data.record
@@ -25,7 +25,7 @@ async function saveToCloud(content) {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'X-Master-Key': MASTER_KEY
+        'X-Access-Key': ACCESS_KEY
       },
       body: JSON.stringify(content)
     })
@@ -52,7 +52,6 @@ export function SiteProvider({ children }) {
     })
   }
 
-  // Al montar — carga desde la nube (fuente de verdad)
   useEffect(() => {
     fetchFromCloud().then((cloudContent) => {
       if (cloudContent) {
@@ -84,7 +83,6 @@ export function SiteProvider({ children }) {
 
 export const useSite = () => useContext(SiteContext)
 
-// ── Helpers ──────────────────────────────────────────────────
 function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
