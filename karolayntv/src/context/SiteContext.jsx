@@ -2,15 +2,41 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import { defaultContent } from './siteContent'
 
 const STORAGE_KEY = 'karolayntv_content'
+const BIN_ID      = '6a039742250b1311c33f17d8'
+const MASTER_KEY  = '$2a$10$DjgR8l8/Brg7bnJ.dJaIBeJFhzRG0lcgnjyPkgq2DgiGxtHRWKEJ.'
+const BIN_URL     = `https://api.jsonbin.io/v3/b/${BIN_ID}`
 
 const SiteContext = createContext(null)
+
+async function fetchFromCloud() {
+  try {
+    const res = await fetch(BIN_URL + '/latest', {
+      headers: { 'X-Master-Key': MASTER_KEY }
+    })
+    const data = await res.json()
+    if (data.record && data.record.hero) return data.record
+    return null
+  } catch { return null }
+}
+
+async function saveToCloud(content) {
+  try {
+    await fetch(BIN_URL, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': MASTER_KEY
+      },
+      body: JSON.stringify(content)
+    })
+  } catch (e) { console.error('Error saving to cloud:', e) }
+}
 
 export function SiteProvider({ children }) {
   const [content, setContent] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
       if (saved) {
-        // Deep merge saved over defaults (handles new fields added later)
         const parsed = JSON.parse(saved)
         return deepMerge(defaultContent, parsed)
       }
@@ -26,14 +52,27 @@ export function SiteProvider({ children }) {
     })
   }
 
-  const saveContent = (newContent) => {
+  // Al montar — carga desde la nube (fuente de verdad)
+  useEffect(() => {
+    fetchFromCloud().then((cloudContent) => {
+      if (cloudContent) {
+        const merged = deepMerge(defaultContent, cloudContent)
+        setContent(merged)
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(merged))
+      }
+    })
+  }, [])
+
+  const saveContent = async (newContent) => {
     setContent(newContent)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newContent))
+    await saveToCloud(newContent)
   }
 
-  const resetContent = () => {
+  const resetContent = async () => {
     localStorage.removeItem(STORAGE_KEY)
     setContent(defaultContent)
+    await saveToCloud(defaultContent)
   }
 
   return (

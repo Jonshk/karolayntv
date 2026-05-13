@@ -5,7 +5,7 @@ import styles from './AdminLogin.module.css'
 // CONTRASEÑA ADMIN
 // Cámbiala aquí antes de subir a producción:
 // ─────────────────────────────────────────────────────────────
-const ADMIN_PASSWORD = 'karolayntv2025'
+const ADMIN_PASSWORD = 'karo'
 
 export default function AdminLogin({ onLogin }) {
   const [pw, setPw] = useState('')

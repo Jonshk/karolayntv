@@ -1,16 +1,10 @@
-// ─────────────────────────────────────────────────────────────
-// CONTENIDO DEL SITIO
-// Todo lo editable desde el panel admin vive aquí.
-// El panel guarda en localStorage para persistencia.
-// ─────────────────────────────────────────────────────────────
-
 export const defaultContent = {
   hero: {
     slides: [
-      { label: 'Locutora de Radio',      accent: '#e63946', image: '' },
-      { label: 'Creadora de Contenidos', accent: '#4361ee', image: '' },
-      { label: 'Publicidad Digital',     accent: '#f4a261', image: '' },
-      { label: 'Influencer & UGC',       accent: '#4ade80', image: '' },
+      { label: 'Locutora de Radio',      accent: '#7b2d42', image: '' },
+      { label: 'Creadora de Contenidos', accent: '#c4956a', image: '' },
+      { label: 'Publicidad Digital',     accent: '#7b2d42', image: '' },
+      { label: 'Influencer & UGC',       accent: '#c4956a', image: '' },
     ],
     headline1: 'Karolaynt',
     headline2: 'Villarroel.',
@@ -19,6 +13,10 @@ export const defaultContent = {
   },
 
   about: {
+    photo: '',
+    image: '',
+    badgeName: 'Karolaynt Villarroel',
+    badgeRole: '@Karolayntv · Creadora & Locutora',
     eyebrow: 'Sobre mí',
     title: 'Donde la voz se convierte en marca.',
     para1: 'Soy Karolaynt Villarroel, locutora de radio y creadora de contenidos con pasión por conectar marcas con personas reales. Mi trabajo combina narrativa auténtica, creatividad visual y estrategia para que tu mensaje llegue lejos.',
@@ -54,7 +52,7 @@ export const defaultContent = {
       title: 'Spot publicitario — Tienda Moda VIP',
       desc: 'Cuña radial de 30 segundos para campaña de temporada.',
       platform: 'Radio',
-      gradient: 'linear-gradient(135deg, #e63946 0%, #c1121f 100%)',
+      gradient: 'linear-gradient(135deg, #7b2d42 0%, #4a1528 100%)',
       emoji: '🎙️',
       tags: ['Locución', 'Radio', 'Publicidad'],
       embedId: '',
@@ -66,7 +64,7 @@ export const defaultContent = {
       title: 'Campaña verano — Marca de ropa',
       desc: 'Serie de 5 videos para campaña de temporada.',
       platform: 'TikTok',
-      gradient: 'linear-gradient(135deg, #ff0050 0%, #69C9D0 100%)',
+      gradient: 'linear-gradient(135deg, #c4956a 0%, #8b5e3c 100%)',
       emoji: '🎬',
       tags: ['TikTok', 'UGC', 'Moda'],
       embedId: '',
@@ -78,7 +76,7 @@ export const defaultContent = {
       title: 'Review producto — Cosmética natural',
       desc: 'Reel de producto con demostración en vivo.',
       platform: 'Instagram',
-      gradient: 'linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%)',
+      gradient: 'linear-gradient(135deg, #7b2d42 0%, #a03d58 100%)',
       emoji: '📸',
       tags: ['Instagram', 'Belleza', 'Review'],
       embedId: '',
@@ -90,7 +88,7 @@ export const defaultContent = {
       title: 'Unboxing & Review — Tech gadget',
       desc: 'Video de 8 minutos con unboxing completo.',
       platform: 'YouTube',
-      gradient: 'linear-gradient(135deg, #ff0000 0%, #ff6b6b 100%)',
+      gradient: 'linear-gradient(135deg, #c4956a 0%, #d4a574 100%)',
       emoji: '▶️',
       tags: ['YouTube', 'Tech', 'Unboxing'],
       embedId: '',
@@ -102,7 +100,7 @@ export const defaultContent = {
       title: 'Campaña 360 — Restaurante local',
       desc: 'Contenido para todas las plataformas.',
       platform: 'Multi-plataforma',
-      gradient: 'linear-gradient(135deg, #f4a261 0%, #e76f51 100%)',
+      gradient: 'linear-gradient(135deg, #7b2d42 0%, #4a1528 100%)',
       emoji: '📢',
       tags: ['Publicidad', 'Gastronomía', '360°'],
       embedId: '',
@@ -114,7 +112,7 @@ export const defaultContent = {
       title: 'Episodio patrocinado — Finanzas personales',
       desc: 'Segmento patrocinado integrado de forma natural.',
       platform: 'Podcast',
-      gradient: 'linear-gradient(135deg, #4361ee 0%, #7209b7 100%)',
+      gradient: 'linear-gradient(135deg, #c4956a 0%, #8b5e3c 100%)',
       emoji: '🎧',
       tags: ['Podcast', 'Audio', 'Patrocinio'],
       embedId: '',

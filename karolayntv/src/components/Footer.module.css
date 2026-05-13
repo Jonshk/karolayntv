@@ -8,12 +8,11 @@
   gap: 16px;
 }
 
-.logo {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.5px;
+.logoImg {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
   flex-shrink: 0;
 }
 
@@ -41,7 +40,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--accent2);
 }
 
 @media (max-width: 768px) {

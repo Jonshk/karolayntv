@@ -27,8 +27,9 @@ export default function Navbar() {
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-        <div className={styles.logo}>Karolayntv</div>
-
+        <a href="#hero" className={styles.logo}>
+          <img src="/logo-kv.png" alt="Karolayntv" className={styles.logoImg} />
+        </a>
         <div className={styles.links}>
           {links.map((l) => (
             <a key={l.href} href={l.href} className={styles.link}>
@@ -36,12 +37,10 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-
         <a href="#contactform" className={styles.cta}>
           Trabajemos juntos
           <span className={styles.ctaArrow}>↗</span>
         </a>
-
         <button
           className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -52,9 +51,13 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile overlay */}
       <div className={`${styles.overlay} ${menuOpen ? styles.overlayOpen : ''}`}>
         <div className={styles.overlayInner}>
+          <img
+            src="/logo-kv.png"
+            alt="Karolayntv"
+            style={{ height: '56px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '32px' }}
+          />
           {links.map((l, i) => (
             <button
               key={l.href}
@@ -65,8 +68,8 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a
-            href="#contact"
+          
+          <a href="#contactform"
             className={styles.overlayCta}
             style={{ transitionDelay: menuOpen ? '0.42s' : '0s' }}
             onClick={() => setMenuOpen(false)}

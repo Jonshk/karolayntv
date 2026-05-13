@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.logo}>Karolayntv</div>
+      <img src="/logo-kv.png" alt="Karolayntv" className={styles.logoImg} />
 
       <div className={styles.center}>
         <p className={styles.copy}>
